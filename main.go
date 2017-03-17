@@ -4,10 +4,14 @@ import (
 	"flag"
 	"fmt"
 	"log"
+	"math/rand"
 	"net/http"
+	"time"
 )
 
 func main() {
+	rand.Seed(time.Now().UnixNano())
+
 	init := flag.Bool("init", false, "Initialize database")
 	dbPath := flag.String("db", "./recruiters.db", "Path to DB")
 	port := flag.Int("port", 8080, "Port to listen on")
